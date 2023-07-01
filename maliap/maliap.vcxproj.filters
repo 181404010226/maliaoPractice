@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testCube.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneConfig.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testWall.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="zombie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ghost.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameVoice.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Grass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="House.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Wmap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LevelManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MonoObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testCube.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="testWall.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zombie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ghost.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameVoice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Grass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="House.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Wmap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="coin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libxl.dll" />
+    <None Include="Map\第一关.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libxl.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image\groud.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\绿树.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\bat1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\ghost1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\man1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\mandebuff1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\pigIdle1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\螃蟹1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat5.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat6.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\bat7.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost5.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost6.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\ghost7.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\man1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\man2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\man3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\man4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\mandebuff1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\mandebuff2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\mandebuff3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\mandebuff4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigIdle1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigIdle2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigIdle3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigIdle4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk5.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk6.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk7.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\pigWalk8.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\螃蟹1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\螃蟹2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\螃蟹3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\螃蟹4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\Animation\螃蟹5.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\开始界面背景.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin5.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin6.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin7.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin8.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\coin9.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\doughnut1.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\doughnut2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\grass(60x36).png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\绿树(60x69).png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\三角屋(60x73).png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\结束界面背景.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\像素背景2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\像素背景1.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Image\像素背景2.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="GameVoice\end.mp3" />
+    <Media Include="GameVoice\Gaming.mp3" />
+    <Media Include="GameVoice\start.mp3" />
+    <Media Include="GameVoice\按钮.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\蝙蝠.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\发射1.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\发射2.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\复活.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\击杀.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\加分.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\扣血1.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\扣血2.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\扣血3.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\螃蟹.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\跳跃.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\幽灵.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\幽灵2.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+    <Media Include="GameVoice\阵亡.wav">
+      <Filter>资源文件</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

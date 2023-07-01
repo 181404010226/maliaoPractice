@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "maliap", "maliap\maliap.vcxproj", "{D59681C9-C460-4622-A914-6ACE670206D9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BackHome", "BackHome\BackHome.vdproj", "{2D87EF3D-AA7A-4B1E-B3DA-31C87C9E5115}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Debug|x64.ActiveCfg = Debug|x64
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Debug|x64.Build.0 = Debug|x64
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Debug|x86.ActiveCfg = Debug|Win32
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Debug|x86.Build.0 = Debug|Win32
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Release|x64.ActiveCfg = Release|x64
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Release|x64.Build.0 = Release|x64
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Release|x86.ActiveCfg = Release|Win32
+		{D59681C9-C460-4622-A914-6ACE670206D9}.Release|x86.Build.0 = Release|Win32
+		{2D87EF3D-AA7A-4B1E-B3DA-31C87C9E5115}.Debug|x64.ActiveCfg = Debug
+		{2D87EF3D-AA7A-4B1E-B3DA-31C87C9E5115}.Debug|x86.ActiveCfg = Debug
+		{2D87EF3D-AA7A-4B1E-B3DA-31C87C9E5115}.Release|x64.ActiveCfg = Release
+		{2D87EF3D-AA7A-4B1E-B3DA-31C87C9E5115}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CFB1713-3DDD-44A4-BBA7-9CE4DB6EDE4A}
+	EndGlobalSection
+EndGlobal
