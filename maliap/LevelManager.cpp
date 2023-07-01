@@ -56,6 +56,7 @@ void LevelManager::ClearDeletingObjects()
 		MonoObject* obj = m_deletingObjects.front();  // 获取队列中的第一个对象
 		m_deletingObjects.pop();  // 从队列中移除这个对象
 		m_activeObjects.erase(obj);  // 从活动对象集合中删除这个对象
+		delete obj; // 清除指针
 	}
 }
 
