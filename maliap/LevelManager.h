@@ -36,7 +36,12 @@ private:
 
 
     void noticeMessage(MonoObject* obj, ExMessage* msg);
+    // ´¦ÀíÒÆ¶¯Âß¼­
     void noticeMove();
+    void processObjectMovement(MonoObject* obj);
+    MonoObject* findCrashObject(vector<MonoObject*>& crashObjs, MonoObject* targetObj, Utils::Rect& address, bool isXDirection);
+    void processCrashObjects(MonoObject* obj, MonoObject* crashObj_x, MonoObject* crashObj_y);
+
     void noticeCrash();
     void noticeGravity();
 

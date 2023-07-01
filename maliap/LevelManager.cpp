@@ -88,7 +88,6 @@ void LevelManager::ProcessUIObjects(bool hasMessage, ExMessage& msg, set<MonoObj
 		NoticeUI(obj, hasMessage, msg);
 	}
 }
-
 void LevelManager::noticeMessage(MonoObject* obj, ExMessage* msg)
 {
 	obj->onGetMessage(*msg);
@@ -96,61 +95,63 @@ void LevelManager::noticeMessage(MonoObject* obj, ExMessage* msg)
 
 void LevelManager::noticeMove()
 {
-	// 遍历m_moveingObjects并获取他们的速度v，来更改他们的位置
 	while (!m_moveingObjects.empty())
 	{
 		MonoObject* obj = m_moveingObjects.front();
 		m_moveingObjects.pop();
-		// 计算当前帧位移
-		float x = obj->vx / Sceneconfig::GetInstance()->MaxFrame;
-		float y = obj->vy / Sceneconfig::GetInstance()->MaxFrame;
-		// 无碰撞情况运动位置
-		Utils::Rect address = Utils::Rect{ obj->body.posx + x,obj->body.posy + y ,obj->body.width,obj->body.height };
-		
-		// 找到x和y方向上碰到的第一个物体
-		vector<MonoObject*> crashObjs = caculateCrash(address);
-		MonoObject* crashObj_x = nullptr;
-		MonoObject* crashObj_y = nullptr;
-		for (int i = 0; i < crashObjs.size(); i++)
-		{
-			MonoObject* it = crashObjs[i];
-			if (it->GetHashID() == obj->GetHashID()) continue;
-			if (crashObj_x== nullptr ||
-				abs(crashObj_x->body.posx - address.posx) < abs(it->body.posx - address.posx))
-			{
-				crashObj_x = it;
-			}
-			if (crashObj_y == nullptr ||
-				abs(crashObj_y->body.posy - address.posy) < abs(it->body.posy - address.posy))
-			{
-				crashObj_y = it;
-			}
-		}
-		// 添加到碰撞单位
-		if (crashObj_x != nullptr)
-		{
-			m_crashObjects[make_pair(obj, crashObj_x)] = true;
-			// 如果碰撞单位不可穿越，被碰撞单位也执行碰撞
-			if (!obj->canThrough) m_crashObjects[make_pair(crashObj_x,obj)] = true;
-		}
-		if (crashObj_y != nullptr)
-		{
-			m_crashObjects[make_pair(obj, crashObj_y)] = true;
-			if (!obj->canThrough) m_crashObjects[make_pair(crashObj_y, obj)] = true;
-		}
-		if (crashObj_x== nullptr && crashObj_y == nullptr)
-		{
-			Utils::Rect positon = obj->body;
-			positon.posx += x;
-			positon.posy += y;
-			obj->body = positon;
-			obj->onMoveSuccess();
-		}
-		
+		processObjectMovement(obj);
 	}
-	noticeCrash(); 
+	noticeCrash();
 }
 
+void LevelManager::processObjectMovement(MonoObject* obj)
+{
+	float x = obj->vx / Sceneconfig::GetInstance()->MaxFrame;
+	float y = obj->vy / Sceneconfig::GetInstance()->MaxFrame;
+	Utils::Rect address = Utils::Rect{ obj->body.posx + x,obj->body.posy + y ,obj->body.width,obj->body.height };
+	vector<MonoObject*> crashObjs = caculateCrash(address);
+	MonoObject* crashObj_x = findCrashObject(crashObjs, obj, address, true);
+	MonoObject* crashObj_y = findCrashObject(crashObjs, obj, address, false);
+	processCrashObjects(obj, crashObj_x, crashObj_y);
+	if (crashObj_x == nullptr && crashObj_y == nullptr)
+	{
+		Utils::Rect position = obj->body;
+		position.posx += x;
+		position.posy += y;
+		obj->body = position;
+		obj->onMoveSuccess();
+	}
+}
+
+MonoObject* LevelManager::findCrashObject(vector<MonoObject*>& crashObjs, MonoObject* targetObj, Utils::Rect& address, bool isXDirection)
+{
+	MonoObject* crashObj = nullptr;
+	for (MonoObject* it : crashObjs)
+	{
+		if (it->GetHashID() == targetObj->GetHashID()) continue;
+		if (crashObj == nullptr ||
+			abs((isXDirection ? crashObj->body.posx : crashObj->body.posy) - (isXDirection ? address.posx : address.posy))
+			< abs((isXDirection ? it->body.posx : it->body.posy) - (isXDirection ? address.posx : address.posy)))
+		{
+			crashObj = it;
+		}
+	}
+	return crashObj;
+}
+
+void LevelManager::processCrashObjects(MonoObject* obj, MonoObject* crashObj_x, MonoObject* crashObj_y)
+{
+	if (crashObj_x != nullptr)
+	{
+		m_crashObjects[make_pair(obj, crashObj_x)]=true;
+		if (!obj->canThrough) m_crashObjects[make_pair(crashObj_x, obj)]=true;
+	}
+	if (crashObj_y != nullptr)
+	{
+		m_crashObjects[make_pair(obj, crashObj_y)]=true;
+		if (!obj->canThrough) m_crashObjects[make_pair(crashObj_y, obj)]=true;
+	}
+}
 
 
 vector<MonoObject*> LevelManager::caculateCrash(Utils::Rect address)
