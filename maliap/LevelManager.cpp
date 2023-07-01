@@ -153,16 +153,13 @@ void LevelManager::processCrashObjects(MonoObject* obj, MonoObject* crashObj_x, 
 	}
 }
 
-
 vector<MonoObject*> LevelManager::caculateCrash(Utils::Rect address)
 {
 	vector<MonoObject*> crashObjs;
-	set<MonoObject*>::iterator it;
-	for (it = m_activeObjects.begin(); it != m_activeObjects.end(); it++) {
-		// 计算所有不能穿越的物体的碰撞情况
-		if (!(*it)->canThrough && Utils::CrossLine((*it)->body, address))
+	for (MonoObject* obj : m_activeObjects) {
+		if (!obj->canThrough && Utils::CrossLine(obj->body, address))
 		{
-			crashObjs.push_back(*it);
+			crashObjs.push_back(obj);
 		}
 	}
 	return crashObjs;
@@ -171,23 +168,18 @@ vector<MonoObject*> LevelManager::caculateCrash(Utils::Rect address)
 vector<MonoObject*> LevelManager::getAllObjects()
 {
 	vector<MonoObject*> rev;
-	set<MonoObject*>::iterator it;
-	for (it = m_activeObjects.begin(); it != m_activeObjects.end(); it++) {
-		rev.push_back(*it);
+	for (MonoObject* obj : m_activeObjects) {
+		rev.push_back(obj);
 	}
 	return rev;
 }
 
-
 void LevelManager::noticeCrash()
 {
-	// 如果noticeMove碰到了不可穿越物体，通知他们碰到了什么
-	map<pair<MonoObject*, MonoObject* >, bool>::iterator it;
-	for (it =m_crashObjects.begin(); it != m_crashObjects.end(); it++) {
-		it->first.first->onCrash(it->first.second);
+	for (auto& pair : m_crashObjects) {
+		pair.first.first->onCrash(pair.first.second);
 	}
 	m_crashObjects.clear();
-
 }
 
 void LevelManager::noticeGravity()
@@ -199,27 +191,31 @@ void LevelManager::noticeGravity()
 		MonoObject* obj = it->first;
 		float y = it->second / Sceneconfig::GetInstance()->MaxFrame;
 		// 无碰撞情况运动位置
-		Utils::Rect address = Utils::Rect{ obj->body.posx,obj->body.posy + y 
+		Utils::Rect address = Utils::Rect{ obj->body.posx,obj->body.posy + y
 			,obj->body.width,obj->body.height };
 		vector<MonoObject*> crashObjs = caculateCrash(address);
 		// 计算重力触碰到的对象
-		MonoObject* crashObj = nullptr;
-		for (int i = 0; i < crashObjs.size(); i++)
-		{
-			MonoObject* it = crashObjs[i];
-			if (it->GetHashID() == obj->GetHashID()) continue;
-			if (crashObj == nullptr ||
-				abs(crashObj->body.posy - address.posy) < abs(it->body.posy - address.posy))
-			{
-				crashObj = it;
-			}
-		}
+		MonoObject* crashObj = findCrashObjectByGravity(crashObjs, obj, address);
 		// 通知重力触碰到的对象
-		if (crashObj!=nullptr)
+		if (crashObj != nullptr)
 		{
 			it->second = 0;
 			obj->onGroud(crashObj);
 		}
 		else obj->body = address;
 	}
+}
+
+MonoObject* LevelManager::findCrashObjectByGravity(vector<MonoObject*>& crashObjs, MonoObject* obj, Utils::Rect& address)
+{
+	MonoObject* crashObj = nullptr;
+	for (MonoObject* it : crashObjs)
+	{
+		if (it->GetHashID() == obj->GetHashID()) continue;
+		if (crashObj == nullptr || abs(crashObj->body.posy - address.posy) < abs(it->body.posy - address.posy))
+		{
+			crashObj = it;
+		}
+	}
+	return crashObj;
 }

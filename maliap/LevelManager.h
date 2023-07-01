@@ -18,22 +18,17 @@ public:
     void Run();
     vector<MonoObject*> caculateCrash(Utils::Rect address);
     vector<MonoObject*> getAllObjects();
-
-    // 物体管理
-    int hashID = 0;
-    void AddObject(MonoObject* obj);
-    void DeleteObject(MonoObject* obj);
-
 private:
     LevelManager() = default;
     LevelManager(const LevelManager&) = delete;
     LevelManager& operator=(const LevelManager&) = delete;
-
+    // 物体管理
+    void AddObject(MonoObject* obj);
+    void DeleteObject(MonoObject* obj);
     // Run函数重构
     void ClearDeletingObjects();
     void ProcessActiveObjects(bool hasMessage, ExMessage& msg, set<MonoObject*>& UIObjects);
     void ProcessUIObjects(bool hasMessage, ExMessage& msg, set<MonoObject*>& UIObjects);
-
 
     void noticeMessage(MonoObject* obj, ExMessage* msg);
     // 处理移动逻辑
@@ -42,10 +37,13 @@ private:
     MonoObject* findCrashObject(vector<MonoObject*>& crashObjs, MonoObject* targetObj, Utils::Rect& address, bool isXDirection);
     void processCrashObjects(MonoObject* obj, MonoObject* crashObj_x, MonoObject* crashObj_y);
 
+    // 通知碰撞或者重力效果
     void noticeCrash();
+    MonoObject* findCrashObjectByGravity(vector<MonoObject*>& crashObjs, MonoObject* obj, Utils::Rect& address);
     void noticeGravity();
 
     bool debugModel = false;
+    int hashID = 0;
     float Gravity = 200;
     queue<MonoObject*> m_deletingObjects;
     set<MonoObject*> m_activeObjects;
@@ -53,6 +51,10 @@ private:
     map<MonoObject*, float> m_fallingObjects;
     map<MonoObject*, pair<float, float>> m_viewingObjects;
     map < pair<MonoObject*, MonoObject*>, bool> m_crashObjects;
+
+    template <typename T>
+    friend inline T* CreateObject(Utils::Rect body);
+    friend inline void DestroyObject(MonoObject* destroyObject);
 };
 
 template <typename T>
