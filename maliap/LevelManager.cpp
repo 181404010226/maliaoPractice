@@ -1,4 +1,5 @@
 #include "LevelManager.h"
+#include <unordered_set>
 
 // 显示碰撞区域，参数为碰撞区域的位置和颜色
 void ShowCollide(Utils::Rect address, int color)
@@ -51,13 +52,26 @@ void LevelManager::Run()
 // 清除待删除的对象
 void LevelManager::ClearDeletingObjects()
 {
-	while (!m_deletingObjects.empty())  // 当待删除对象队列不为空时
+	// 创建一个无序集合来存储已经删除的对象
+	std::unordered_set<MonoObject*> deletedObjects;
+	// 当待删除对象队列不为空时
+	while (!m_deletingObjects.empty())
 	{
-		MonoObject* obj = m_deletingObjects.front();  // 获取队列中的第一个对象
-		m_deletingObjects.pop();  // 从队列中移除这个对象
-		if (m_activeObjects.find(obj) != m_activeObjects.end()) { // 判断是否存在对象
-			m_activeObjects.erase(obj);  // 从活动对象集合中删除这个对象
-			delete obj; // 清除指针
+		// 获取队列中的第一个对象
+		MonoObject* obj = m_deletingObjects.front();
+		// 从队列中移除这个对象
+		m_deletingObjects.pop();
+		// 检查对象是否已经被删除
+		if (deletedObjects.find(obj) == deletedObjects.end()) {
+			// 如果活动对象集合中存在这个对象
+			if (m_activeObjects.find(obj) != m_activeObjects.end()) {
+				// 从活动对象集合中删除这个对象
+				m_activeObjects.erase(obj);
+			}
+			// 删除对象
+			delete obj;
+			// 将对象添加到已删除对象的集合中
+			deletedObjects.insert(obj);
 		}
 	}
 }
