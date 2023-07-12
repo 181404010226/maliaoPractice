@@ -52,14 +52,12 @@ private:
     MonoObject* findCrashObject(vector<MonoObject*>& crashObjs, MonoObject* targetObj, Utils::Rect& address, bool isXDirection);
     // 处理碰撞对象
     void processCrashObjects(MonoObject* obj, MonoObject* crashObj_x, MonoObject* crashObj_y);
-
     // 通知碰撞或者重力效果
     void noticeCrash();
     // 查找重力碰撞对象
     MonoObject* findCrashObjectByGravity(vector<MonoObject*>& crashObjs, MonoObject* obj, Utils::Rect& address);
     // 通知重力
     void noticeGravity();
-
     // 调试模式
     const bool debugModel = false;
     // 哈希ID
@@ -76,7 +74,6 @@ private:
     map<MonoObject*, float> m_fallingObjects;
     // 碰撞对象映射
     map < pair<MonoObject*, MonoObject*>, bool> m_crashObjects;
-
     // 创建对象的模板函数
     template <typename T>
     friend inline T* CreateObject(Utils::Rect body);
