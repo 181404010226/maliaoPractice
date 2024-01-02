@@ -108,13 +108,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Code_C\library\libxl-win-4.1.0\libxl-4.1.0\include_cpp;D:\QQ消息记录\761346811\FileRecv\libxl-4.1.0\include_cpp;D:\图灵院\图形界面练习\libxl-4.1.0\include_cpp;D:\Program Files\JiJiDown\Download\libxl-win-4.1.0\libxl-4.1.0\include_cpp;D:\QQ资料\2322301578\FileRecv\01汤臣一品业组需求分析\汤臣一品业组-设计资料\libxl-4.1.0\include_cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include_cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);libxl.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Code_C\library\libxl-win-4.1.0\libxl-4.1.0\lib64;D:\QQ消息记录\761346811\FileRecv\libxl-4.1.0\lib64;D:\图灵院\图形界面练习\libxl-4.1.0\lib64;D:\Program Files\JiJiDown\Download\libxl-win-4.1.0\libxl-4.1.0\lib64;D:\QQ资料\2322301578\FileRecv\01汤臣一品业组需求分析\汤臣一品业组-设计资料\libxl-4.1.0\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>maliap\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
